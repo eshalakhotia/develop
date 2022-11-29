@@ -1,4 +1,4 @@
-import Card from './Card';
+import Box from './Box';
 
 const ProdList = ({products, addToCart}) => {
 
@@ -7,7 +7,7 @@ const ProdList = ({products, addToCart}) => {
                         {
                             products.map(i => {
                                 return (
-                                    <Card key={i.id} data={i} addToCart={addToCart} />
+                                    <Box key={i.id} data={i} addToCart={addToCart} />
                                 )
                             })
                         }
