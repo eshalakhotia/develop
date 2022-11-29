@@ -1,33 +1,22 @@
-import React, {useState} from 'react';
-import ProdList from './ProdList';
+import products from '../product-data.json'
 
-const Filtering = ({products, sortProducts, addToCart}) =>  {
+export default function Filtering(array1, filterMechanism) {
 
-    const [element, setEl] = useState('Select');
+    if(filterMechanism == null) return products;
 
-    const setL = (e) => {
-        setEl(e.target.value);
-        sortProducts(e.target.value);
+    else {
+          return products.filter(p => {
+          const sizeL = p.size.split(" ");
+          const len = array1.length;
+          if(len > 0) {
+                if(sizeL.some(r => array1.indexOf(r) >= 0)) {
+                    return p;
+            }
+          }
+          else {
+              return products;
+          }
+      })  
     }
-    
-    return (
-        <div>
-            <div >
-                <h3>Clothing Products and Accessories</h3>
-                <div>
-                    Sort by Price:
-                    <select element={element} onChange={setL}>
-                        <option >Select</option>
-                        <option >Lowest to Highest</option>
-                        <option >Highest to Lowest</option>
-                    </select>
-                </div>
-            </div>
-
-            <ProdList products={products} addToCart={addToCart} />
-            
-        </div>
-    )
 }
 
-export default Filtering;

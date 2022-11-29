@@ -1,6 +1,6 @@
 import Box from './Box';
 
-const ProdList = ({products, addToCart}) => {
+const ProdMap = ({products, addToCart}) => {
 
     return (
                 <div>
@@ -15,4 +15,4 @@ const ProdList = ({products, addToCart}) => {
     )
 }
 
-export default ProdList
+export default ProdMap

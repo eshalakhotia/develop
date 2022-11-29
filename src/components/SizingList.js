@@ -1,19 +1,19 @@
 import React from 'react'
 
-const Sizes = ({selectedSizes, setSize}) =>  {
+const Sizes = ({setSize}) =>  {
 
     const sizingList = ['S', 'M', 'L', '1Size'];
 
     return (
         <div>
-            <h3>Sizes</h3>
+            <h4>Filter By Size: (Reclick Filter to Remove)</h4>
             <div>
                 {
                     sizingList.map((s, i) => {
                         return (
                             <button 
                                 key={i}
-                                className={ "size" + (selectedSizes.includes(s) ? " selected-size" : "")}
+                                className='size'
                                 onClick={() => setSize(s)}
                             >
                                 {s}

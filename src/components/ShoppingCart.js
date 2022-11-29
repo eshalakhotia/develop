@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ItemCart from './ItemCart';
 
-const ShoppingCart = ({products, changeQuantity}) => {
+const ShoppingCart = ({products, updateQ}) => {
     const [sum, setSum] = useState(0);
     useEffect(() => {
         let t = 0;
@@ -19,21 +19,16 @@ const ShoppingCart = ({products, changeQuantity}) => {
     return (
         <React.Fragment>    
                     <h3>
-                    <img style={{ width: 50, height: 40 }}src="images/shopping.png" alt="cart" />
+                    <img style={{ width:50, height:40 }}src="images/shopping.png" />
                         Your Cart
                     </h3> 
-                        {products.length === 0 
-                            ? 
-                            <div>
-                                <p>You Have Zero Items to Checkout. Please add to Your Cart!</p>
-                            </div> 
-                            :
+                        {
                             products.map(product => {
                                 return (
                                     <ItemCart 
                                         key={product.id} 
-                                        changeQuantity={changeQuantity} 
                                         product={product} 
+                                        updateQ={updateQ} 
                                          />)
                             })
                         } <h3> Grand Total: ${sum} </h3>

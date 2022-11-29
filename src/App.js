@@ -1,56 +1,44 @@
 import React, {useState, useEffect} from 'react';
 
 import './App.css';
-import Filtering from './components/Filtering';
-import filterList from './components/filterList';
+import Sorting from './components/Sorting';
+import filterList from './components/Filtering';
 import ShoppingCart from './components/ShoppingCart';
-import Sizes from './components/Sizes';
+import Sizes from './components/SizingList';
 
 function App() {
 
-  const [products, setProducts] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
+  const [p, setP] = useState([]);
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    setProducts(filterList([], null));
+    setP(filterList([], null));
     if(JSON.parse(localStorage.getItem("shoppingCart"))) {
       setShoppingCart(JSON.parse(localStorage.getItem("shoppingCart")));
     }
   }, [])
 
+  const sortingP = (method) => {
+    const arrayProd = p;
 
-  const sortProducts = (method) => {
-    const arrayProd = products;
-
-    if(method === "Lowest to Highest") {
-        arrayProd.sort(function(a, b){
-          const aPrice = a.price
-          const bPrice = b.price
-          return aPrice-bPrice
+    if(method === "Highest to Lowest") {
+      arrayProd.sort(function(x, y){
+        const aPrice = x.price
+        const bPrice = y.price
+        return bPrice-aPrice
       })
     }
-    else if(method === "Highest to Lowest") {
-        arrayProd.sort(function(a, b){
-          const aPrice = a.price
-          const bPrice = b.price
-          return bPrice-aPrice
+    else if(method === "Lowest to Highest") {
+      arrayProd.sort(function(x, y){
+        const aPrice = x.price
+        const bPrice = y.price
+        return aPrice-bPrice
       })
     }
-    setProducts(arrayProd);
+    setP(arrayProd);
   }
 
-  const setSize = (size) => {
-    const sizes = [...selectedSizes];
-    if(!sizes.includes(size)) {
-      sizes.push(size);
-    }
-    else {
-      sizes.splice(sizes.indexOf(size), 1);
-    }
-    setProducts(filterList(sizes, 'size'));
-    setSelectedSizes(sizes);
-  }
 
   const addToCart = (item) => {
     const proL = [...shoppingCart];
@@ -62,28 +50,38 @@ function App() {
     setShoppingCart(proL);
   }
 
-  const changeQuantity = (item, e) => {
+  const updateQ = (item, e) => {
     const proL = [...shoppingCart];
-    if(e === '+') {
-      proL[proL.indexOf(item)].quantity++;
-    }
-    else {
-      if(proL[proL.indexOf(item)].quantity > 1) {
-        proL[proL.indexOf(item)].quantity--;
+    const ind = proL.indexOf(item);
+    if(e === 'negative') {
+      if(proL[ind].quantity > 1) {
+        proL[ind].quantity--;
       }
       else {
-        proL.splice(proL.indexOf(item), 1);
+        proL.splice(ind, 1);
       }
     } 
     setShoppingCart(proL);
     localStorage.setItem("cart", JSON.stringify(proL));
   }
+
+  const reassignSize = (size) => {
+    const sizes = [...selectedSizes];
+    if(!sizes.includes(size)) {
+      sizes.push(size);
+    }
+    else {
+      sizes.splice(sizes.indexOf(size), 1);
+    }
+    setSelectedSizes(sizes);
+    setP(filterList(sizes, 'size'));
+  }
   
   return (
     <div className="App">
-      <Sizes selectedSizes={selectedSizes} setSize={setSize} />
-      <Filtering products={products} sortProducts={sortProducts} addToCart={addToCart} />
-      <ShoppingCart products={shoppingCart} changeQuantity={changeQuantity} />
+      <Sizes selectedSizes={selectedSizes} setSize={reassignSize} />
+      <Sorting products={p} sortProducts={sortingP} addToCart={addToCart} />
+      <ShoppingCart products={shoppingCart} updateQ={updateQ} />
     </div>
   );
 }

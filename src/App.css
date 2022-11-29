@@ -17,7 +17,7 @@
 .add-to {
   padding-top: 10px;
   padding-bottom: 10px;
-  width: 40%;
+  width: 60%;
   font-size: 1.2rem;
   color: black;
   cursor: pointer;
@@ -30,10 +30,6 @@
 }
 .size:hover {
   border: 1px solid lightskyblue;
-}
-.selected-size {
-  background: lightskyblue;
-  color: white;
 }
 .size {
   width: 60px;
