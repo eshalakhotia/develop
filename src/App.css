@@ -8,18 +8,11 @@
 .App-link {
   color: #61dafb;
 }
-.card {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 30px auto;
-  border: 5px solid lightgray;
-  border-radius: 4px;
-  padding: 18px 12px;
-}
+
 .image-card {
-  width: 250px;
-  height: auto;
+  width: 200px;
+  height: 300px;
+  object-fit: contain;
 }
 .add-to {
   padding-top: 10px;

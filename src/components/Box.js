@@ -10,11 +10,11 @@ import React from 'react'
 
 const Box = ({data, addToCart}) => {
     return (
-        <Card sx={{ maxWidth: 400}}>
+        <Card sx={{ maxWidth: 300}}>
             <CardMedia
               component="img"
-              height="200"
-              image ={data.image} class="card-image"
+              height="250"
+              image ={data.image} class = 'image-card'
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
