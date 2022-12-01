@@ -1,6 +1,10 @@
 import Box from './Box';
 
-const ProdMap = ({products, addToCart}) => {
+const ProdMap = (props) => {
+    const { 
+    products,
+    addToCart
+} = props;
 
     return (
                 <div>

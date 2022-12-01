@@ -5,7 +5,11 @@ import {
     Typography,
     CardActions,
   } from '@mui/material';
-const ItemCart = ({product, updateQ}) => {
+const ItemCart = (props) => {
+  const { 
+    product,
+    updateQ
+} = props;
     return (
         <Card style={{backgroundColor: "lightskyblue"}} sx={{ maxWidth: 300}}>
             <new-line></new-line>

@@ -8,7 +8,11 @@ import {
   } from '@mui/material';
 import React from 'react'
 
-const Box = ({data, addToCart}) => {
+const Box = (props) => {
+    const { 
+        data,
+        addToCart
+    } = props;
     return (
         <Card sx={{ maxWidth: 300}}>
             <CardMedia

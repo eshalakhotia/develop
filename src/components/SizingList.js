@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Sizes = ({setSize}) =>  {
+const Sizes = (props) =>  {
+    const { 
+        setSize
+    } = props;
 
     const sizingList = ['S', 'M', 'L', '1Size'];
 

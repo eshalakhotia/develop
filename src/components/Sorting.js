@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 import ProdMap from './ProdMap';
 
-const Sorting = ({products, sortProducts, addToCart}) =>  {
-
+const Sorting = (props) =>  {
+    const { 
+        products,
+        sortProducts,
+        addToCart
+    } = props;
     const [element, setEl] = useState('Select Filter');
 
     const setL = (e) => {

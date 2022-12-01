@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import ItemCart from './ItemCart';
 
-const ShoppingCart = ({products, updateQ}) => {
+const ShoppingCart = (props) => {
+    const { 
+        products,
+        updateQ
+    } = props;
     const [sum, setSum] = useState(0);
     useEffect(() => {
         let t = 0;
