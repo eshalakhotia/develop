@@ -19,7 +19,7 @@
       "id": "3",
       "title": "Dana Hat",
       "image": "images/buckethat.png",
-      "size": "1Size",
+      "size": "Accessory",
       "price": 12.00,
       "quantity": 0
   },
@@ -43,7 +43,7 @@
       "id": "6",
       "title": "Kyler Beanie",
       "image": "images/purplebeanie.png",
-      "size": "1Size",
+      "size": "Accessory",
       "price": 17.00,
       "quantity": 0
   },
@@ -75,7 +75,7 @@
       "id": "10",
       "title": "Stuart Sunnies",
       "image": "images/sunglasses.png",
-      "size": "1Size",
+      "size": "Accessory",
       "price": 8.00,
       "quantity": 0
   },

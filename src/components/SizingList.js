@@ -5,11 +5,12 @@ const Sizes = (props) =>  {
         setSize
     } = props;
 
-    const sizingList = ['S', 'M', 'L', '1Size'];
+    const sizingList = ['S', 'M', 'L', 'Accessory'];
 
     return (
         <div>
-            <h4>Filter By Size: (Reclick Filter to Remove)</h4>
+            <h4>Filter By Size (S, M, L) </h4>
+            <h4>Filter By Accessory</h4>
             <div>
                 {
                     sizingList.map((s, i) => {
